@@ -1,0 +1,172 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "description":"This is the Api For Users",
+        "version":"__version__"
+    },
+    "tags":[
+        {
+            "name":"PUBLIC ROUTE",
+            "description":"PUBLIC ROUTE"
+        }
+    ],
+    "paths":{
+        "/health":{
+            "summary":"Testing Health Check of app",
+            "get":{
+                "description":"Testing Health Check of app",
+                "tags":["PUBLIC ROUT"],
+                "responses":{
+                    "200":{
+                        "description":"Health check pass"
+                    },
+                    "404":{
+                        "description":"No Route Found For Health"
+                    }
+                }
+            }
+        },
+        "/users":{
+            "summary":"Testing Users",
+            "get":{
+                "description":"Get All Users",
+                "tags":["PUBLIC ROUT"],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose role as admin or user"
+                    },
+                    {
+                        "in":"query",
+                        "name":"city",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose city of user"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health check pass"
+                    },
+                    "404":{
+                        "description":"No Route Found For Health"
+                    }
+                }
+            }
+        },
+        "/user/{id}":{
+            "summary":"Testing Particular Users",
+            "get":{
+                "description":"Get Particular Users",
+                "tags":["PUBLIC ROUT"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter user Id"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Getting Particular User"
+                    }
+                }
+            }
+        },
+        "/addUser":{
+            "summary":"Add New User",
+            "post":{
+                "description":"Adding New User",
+                "tags":["PUBLIC ROUT"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "name":"Arushi",
+                                "city":"Venice",
+                                "phone":887676788,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Added"
+                    }
+                }
+            }
+        },
+        "/updateUser":{
+            "summary":"Update User",
+            "put":{
+                "description":"Update User",
+                "tags":["PUBLIC ROUT"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"624480e13033ebbc11b6d33b",
+                                "name":"Arushi",
+                                "city":"Venice",
+                                "phone":887676788,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Update"
+                    }
+                }
+            }
+        },
+        "/deleteUser":{
+            "summary":"Delete User",
+            "delete":{
+                "description":"Delete User",
+                "tags":["PUBLIC ROUT"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"624480e13033ebbc11b6d33b"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Delete"
+                    }
+                }
+            }
+        }
+    }
+}
