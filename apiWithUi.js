@@ -5,7 +5,7 @@ const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoUrl = "mongodb://localhost:27017";
+const mongoUrl = "mongodb+srv://local:test12345@cluster0.f8vmc.mongodb.net/augintern?retryWrites=true&w=majority";
 let db;
 let col_name = "dashboard";
 let swaggerUi = require('swagger-ui-express')
